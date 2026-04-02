@@ -1,0 +1,33 @@
+body {
+    background: #0f172a;
+    font-family: Arial;
+    color: white;
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px;
+    color: #22c55e;
+}
+
+.card {
+    background: #1e293b;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.card a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+.card:hover {
+    background: #334155;
+    transform: scale(1.02);
+}
