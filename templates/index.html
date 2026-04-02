@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Alerts</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🚨 Cyber Threat Alerts</h1>
+
+    {% for alert in alerts %}
+        <div class="card">
+            <a href="{{ alert.link }}" target="_blank">
+                {{ alert.title }}
+            </a>
+        </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
