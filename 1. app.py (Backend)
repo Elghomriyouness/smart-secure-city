@@ -1,0 +1,29 @@
+from flask import Flask, render_template
+import feedparser
+import html
+
+app = Flask(__name__)
+
+RSS_URL = "PUT_YOUR_RSS_LINK_HERE"
+
+@app.route('/')
+def home():
+    feed = feedparser.parse(RSS_URL)
+
+    alerts = []
+    for entry in feed.entries[:10]:
+        alerts.append({
+            "title": html.escape(entry.title),
+            "link": entry.link
+        })
+
+    return render_template("index.html", alerts=alerts)
+
+@app.after_request
+def secure_headers(response):
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'DENY'
+    return response
+
+if __name__ == "__main__":
+    app.run(debug=True)
